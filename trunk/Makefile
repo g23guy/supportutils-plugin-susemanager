@@ -45,6 +45,7 @@ clean:
 	@echo Cleaning up make files
 	@echo ==================================================================
 	rm -rf $(OBSPACKAGE)*
+	rm src/$(SRCFILE).gz
 	for i in $(SVNDIRS); do rm -f $$i/*~; done
 	rm -f *~
 	@echo
