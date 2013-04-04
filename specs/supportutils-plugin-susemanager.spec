@@ -23,7 +23,7 @@ Distribution: Novell NTS
 Vendor:       Novell Technical Services
 Requires:     supportconfig-plugin-resource
 Requires:     supportconfig-plugin-tag
-Requires:     novell-susemanager-engine
+Requires:     susemanager
 
 %description
 Extends supportconfig functionality to include system information about 
@@ -39,11 +39,14 @@ pwd;ls -la
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/lib/supportconfig/plugins
 install -d $RPM_BUILD_ROOT/usr/share/man/man8
+install -d $RPM_BUILD_ROOT/sbin
+install -m 0544 supportconfig-sumalog $RPM_BUILD_ROOT/sbin
 install -m 0544 susemanager $RPM_BUILD_ROOT/usr/lib/supportconfig/plugins
 install -m 0644 susemanager-plugin.8.gz $RPM_BUILD_ROOT/usr/share/man/man8/susemanager-plugin.8.gz
 
 %files
 %defattr(-,root,root)
+/sbin/supportconfig-sumalog
 /usr/lib/supportconfig
 /usr/lib/supportconfig/plugins
 /usr/lib/supportconfig/plugins/susemanager
